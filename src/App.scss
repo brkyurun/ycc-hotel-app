@@ -1,0 +1,325 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+$color-primary: #fff;
+$color-secondary: #132f56;
+$svg-inactive: #7589a4;
+$svg-active: #fff;
+$hotel-select: #7589a4;
+$onboarding-primary: #e0ecf5;
+$onboarding-secondary: #132f56;
+$reservation-info-bg: #e0ecf5;
+$reservation-info-primary: #132f56;
+$reservation-info-secondary: #7589a4;
+$room-type-primary: #132f56;
+$room-type-line-fill: #e0ecf5;
+$room-type-inactive: #e0ecf5;
+$room-type-active: #359123;
+
+//Not: İlk başta Figma dosyasındaki ölçüleri kullandım, fakat o şekilde verilen
+//tasarımdan çok daha büyük göründüğü için ölçüleri aşağı yukarı Figma ölçülerinin
+//yarısı kadar olarak kullandım.
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+//Header styles
+header {
+  background-color: $color-secondary;
+  color: $color-primary;
+  border-radius: 0px 0px 10px 10px;
+  height: 5.5rem;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 65px 16px 65px;
+    margin: 0 auto;
+  }
+
+  .logo {
+    text-align: left;
+
+    h1 {
+      font-size: 1.625rem;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: lighter;
+    }
+  }
+
+  button {
+    cursor: pointer;
+    border: transparent;
+    outline: transparent;
+    background-color: $color-primary;
+    color: $color-secondary;
+    text-align: center;
+    font-size: 1rem;
+    padding: 10px 40px 10px 40px;
+    border-radius: 6px;
+  }
+}
+//Progress styles
+.progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $color-secondary;
+  color: $color-primary;
+  margin: 30px 120px 0px 120px;
+  padding: 75px 150px 75px 150px;
+  border-radius: 30px;
+
+  .svg-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 9.375rem;
+    height: 9.375rem;
+
+    p {
+      font-weight: bold;
+      font-size: 0.875rem;
+      text-align: center;
+    }
+  }
+
+  .svg-container:first-of-type {
+    padding-bottom: 17px;
+  }
+
+  .svg-container.active:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 45px;
+    left: 124px;
+    width: 25vw;
+    height: 5px;
+    background-color: $svg-active;
+  }
+
+  .svg-container.inactive:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 45px;
+    left: 124px;
+    width: 25vw;
+    height: 5px;
+    background-color: $svg-inactive;
+  }
+}
+
+//Select hotel styles
+.search-hotel {
+  position: relative;
+
+  .select-hotel {
+    display: block;
+    width: 65%;
+    height: 4rem;
+    margin: 55px auto 55px auto;
+    padding: 8px 50px;
+    outline: none;
+    border: 4px solid $hotel-select;
+    border-radius: 10px;
+    font-size: 1.325rem;
+    font-weight: bold;
+    color: $hotel-select;
+  }
+
+  img {
+    position: absolute;
+    top: 1rem;
+    left: 18.125rem;
+  }
+}
+//Date and People Number styles
+.date-selection {
+  margin: 30px 120px 0px 120px;
+  padding: 75px 100px 75px 200px;
+  border-radius: 30px;
+  background-color: $onboarding-primary;
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+
+    .date-inputs-container {
+      display: flex;
+      gap: 10px;
+      justify-self: center;
+      margin-right: 140px;
+    }
+
+    .boarding-container label {
+      text-align: right;
+    }
+
+    .boarding-container,
+    .departure-container,
+    .adults,
+    .children {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.825rem;
+      font-weight: bold;
+
+      label {
+        color: $onboarding-secondary;
+      }
+
+      input {
+        width: 14rem;
+        height: 3.1rem;
+        text-align: center;
+        font-size: 1.325rem;
+      }
+    }
+
+    img {
+      width: 3rem;
+      height: 3.1rem;
+      align-self: flex-end;
+    }
+
+    .people-container {
+      display: flex;
+      gap: 50px;
+
+      input {
+        width: 6.5rem;
+        text-align: center;
+        font-size: 1.325rem;
+      }
+    }
+  }
+}
+
+//Next page styles
+.continue-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 50px 120px 50px 120px;
+  padding: 35px 160px 35px 100px;
+  border-radius: 30px;
+  background-color: $onboarding-primary;
+
+  .save-button {
+    cursor: pointer;
+    border: transparent;
+    border-radius: 6px;
+    outline: transparent;
+    background-color: $color-secondary;
+    color: $color-primary;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 15px 30px;
+  }
+}
+//Reservation Details styles
+.reservation-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+  margin: 50px 120px 50px 120px;
+  padding: 35px 160px 35px 100px;
+  border-radius: 30px;
+  background-color: $reservation-info-bg;
+  font-size: 1.25rem;
+
+  .top-text,
+  .bottom-text {
+    display: flex;
+    gap: 5px;
+
+    p {
+      color: $reservation-info-primary;
+      font-weight: bold;
+    }
+
+    p.hotel-location,
+    span {
+      color: $reservation-info-secondary;
+    }
+  }
+}
+
+//room selection and scenery selection styles
+.room-type-container,
+.scenery-type-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 15px;
+  margin: 50px 120px 50px 120px;
+
+  h2 {
+    position: relative;
+    color: $room-type-primary;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0px;
+      height: 1px;
+      width: 83vw;
+      background-color: $room-type-line-fill;
+    }
+  }
+
+  .rooms,
+  .sceneries {
+    display: flex;
+    margin: 0 auto;
+    gap: 75px;
+  }
+}
+
+.room-card,
+.scenery-card {
+  border: 1px solid $room-type-inactive;
+  border-radius: 9px;
+  padding: 15px 30px;
+
+  img {
+    width: 240px;
+    height: 125px;
+    margin-bottom: 5px;
+  }
+
+  .room-select-card,
+  .scenery-select-card {
+    display: none;
+  }
+
+  .text-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    color: $room-type-primary;
+  }
+
+  &.active {
+    border: 1px solid $room-type-active;
+  }
+
+  .card-content {
+    cursor: pointer;
+  }
+}
